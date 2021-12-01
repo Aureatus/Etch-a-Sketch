@@ -1,0 +1,31 @@
+html , body {
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    width: 900px;
+    height: 50px;
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(16, 6.25fr);
+    grid-template-rows: repeat(16, 6.25fr);
+    height: 900px;
+    width: 900px;
+}
+
+.square {
+    background-color: aqua;
+}
+
+.black {
+    background-color: black;
+}

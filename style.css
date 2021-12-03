@@ -11,21 +11,33 @@ body {
 }
 
 button {
-    width: 900px;
-    height: 50px;
+    width: 70%;
+    height: 5%;
 }
-.container {
+/*.container {
     display: grid;
     grid-template-columns: repeat(16, 6.25fr);
     grid-template-rows: repeat(16, 6.25fr);
-    height: 900px;
-    width: 900px;
+    height: 70%;
+    width: 70%;
 }
-
+*/
+.container {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols), 6.25fr);
+    grid-template-rows: repeat(var(--grid-rows), 6.25fr);
+    height: 70%;
+    width: 70%;
+}
 .square {
     background-color: aqua;
 }
 
 .black {
     background-color: black;
+}
+
+:root {
+    --grid-cols: 1;
+    --grid-rows: 1;
 }

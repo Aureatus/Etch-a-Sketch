@@ -1,14 +1,18 @@
 const body = document.body
 const container = document.querySelector(".container")
-/*function gridDraw() {
-    for (let i = 1; i<=256; i++) {
-        const gridDiv = document.createElement("div")
-        container.appendChild(gridDiv)
-        gridDiv.classList.add("square")
-        gridDiv.classList.add(i)
-    }
+const clearGridButton = document.querySelector("#clearGrid")
+
+clearGridButton.addEventListener("click", newGrid)
+
+gridDraw(16);
+
+function squareSelector () {
+    const squares = container.querySelectorAll("div.square");
+    squares.forEach(i => {
+        i.addEventListener("mouseenter", mouseEnter)
+    });
 }
-*/
+
 function gridDraw(input) {
     container.style.setProperty("--grid-number", input);
     for (let i = 1; i<=(input*input); i++) {
@@ -16,32 +20,36 @@ function gridDraw(input) {
         container.appendChild(gridDiv)
         gridDiv.classList.add("square")
         gridDiv.classList.add(i)
+        squareSelector()
     }
 }
-gridDraw(16);
-
-const squares = container.querySelectorAll("div.square");
-squares.forEach(i => {
-    i.addEventListener("mouseenter", mouseEnter)
-    i.addEventListener("mouseleave", mouseLeave)
-});
-
 
 function mouseEnter() {
     this.classList.add("black")
 }
 
-function mouseLeave() {
 
+function newGrid() {
+    clearGrid()
+    createGrid()
 }
 
-const clearGridButton = document.querySelector("#clearGrid")
-clearGridButton.addEventListener("click", clearGridFunction)
-
-function clearGridFunction() {
+function clearGrid() {
     const square = container.querySelectorAll("div.square")
     for (i=0; i < square.length; i++) {
         square[i].classList.remove("black")
     }
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+    
+}
 
+function createGrid() {
+    let input  = 0
+    
+    while(input < 1 | input > 100) {
+        input = prompt("How many squares per side would you like for the new grid? Must be from 1-100.");
+    }
+    gridDraw(input)
 }

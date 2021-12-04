@@ -8,29 +8,31 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: cornflowerblue;
 }
 
-button {
-    width: 70%;
-    height: 5%;
+#clearGrid {
+    width: 910px;
+    height: 100px;
+    border-color: yellow;
+    border-style: solid;
+    border-width: 5px;
+    background-color: lavender;
 }
-/*.container {
-    display: grid;
-    grid-template-columns: repeat(16, 6.25fr);
-    grid-template-rows: repeat(16, 6.25fr);
-    height: 70%;
-    width: 70%;
-}
-*/
+
 .container {
     display: grid;
-    grid-template-columns: repeat(var(--grid-cols), 6.25fr);
-    grid-template-rows: repeat(var(--grid-rows), 6.25fr);
-    height: 70%;
-    width: 70%;
+    grid-template-columns: repeat(var(--grid-number), 6.25fr);
+    grid-template-rows: repeat(var(--grid-number), 6.25fr);
+    height: 900px;
+    width: 900px;
+    border-color:coral;
+    border-style: solid;
+    border-width: 5px;
 }
+
 .square {
-    background-color: aqua;
+    background-color:white;
 }
 
 .black {
